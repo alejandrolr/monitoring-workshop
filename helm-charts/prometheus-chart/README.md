@@ -20,7 +20,7 @@ To disable the dependency during installation, set `kubeStateMetrics.enabled` to
 ## Uninstall Chart
 
 ```
-helm uninstall [RELEASE_NAME] -n default
+helm uninstall prometheus -n default
 ```
 
 This removes all the Kubernetes components associated with the chart and deletes the release.
