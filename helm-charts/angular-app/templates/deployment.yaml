@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-app
+  labels:
+    app: angular-app
+    chart: angular-app
+    release: angular-app
+    heritage: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular-app
+      release: angular-app
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: angular-app
+        release: angular-app
+    spec:
+      containers:
+        - name: angular-app
+          image: sanzmiguel/angular-app:0.1
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 4200
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 600m
+              memory: 800Mi
+            requests:
+              cpu: 300m
+              memory: 400Mi

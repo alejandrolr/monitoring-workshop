@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular-app
+  labels:
+    app: angular-app
+    chart: angular-app
+    release: angular-app
+    heritage: Helm
+  annotations:
+spec:
+  type: ClusterIP
+  selector:
+    app: angular-app
+    release: angular-app
+  ports:
+    - name: http
+      port: 4200
+      protocol: TCP
+      targetPort: 4200

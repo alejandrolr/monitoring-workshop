@@ -1,0 +1,7 @@
+apiVersion: v1
+description: A Helm chart for Kubernetes
+name: angular-app
+namespace: default
+version: 0.1
+maintainers:
+- name: sanzmiguel
