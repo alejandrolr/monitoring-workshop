@@ -8,7 +8,7 @@ helm upgrade node-service . -i --namespace=default
 
 ## Uninstalling the Chart
 
-To uninstall/delete the grafana deployment:
+To uninstall/delete the node-service deployment:
 
 ```
 helm uninstall node-service -n default
