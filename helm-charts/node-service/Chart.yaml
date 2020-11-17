@@ -1,0 +1,8 @@
+apiVersion: v1
+description: A Helm chart for Kubernetes
+name: node-service
+version: 0.1
+namespace: default
+maintainers:
+- name: sanzmiguel
+  email: miguel.sanz@kairosds.com

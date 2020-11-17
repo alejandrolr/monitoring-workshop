@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-service
+  labels:
+    app: node-service
+spec:
+  selector:
+    matchLabels:
+      app: node-service
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 50%
+  template:
+    metadata:
+      labels:
+        app: node-service
+    spec:
+      containers:
+        - name: node-service
+          image: sanzmiguel/node-service:0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+          - name: http
+            containerPort: 3002
+            protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 150Mi
+            requests:
+              cpu: 20m
+              memory: 80Mi

@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-service
+  labels:
+    app: node-service
+  annotations:
+spec:
+  type: ClusterIP
+  selector:
+    app: node-service
+  ports:
+    - name: http
+      port: 3002
+      protocol: TCP
+      targetPort: 3002

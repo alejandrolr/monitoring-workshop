@@ -5,7 +5,7 @@ Install/Upgrade metrics-server:
 ```
 helm repo add stable https://charts.helm.sh/stable
 helm repo update
-helm upgrade metrics-server -i --namespace=default --values=./values.yaml stable-old/metrics-server
+helm upgrade metrics-server -i --namespace=default --values=./values.yaml stable/metrics-server
 ```
 
 ## Uninstalling the Chart
