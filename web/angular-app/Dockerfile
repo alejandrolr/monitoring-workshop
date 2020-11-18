@@ -1,17 +1,12 @@
-# base image
-FROM node:14
+# stage 1
 
+FROM node:alpine AS my-app-build
 WORKDIR /app
+COPY . .
+RUN npm ci && npm run build
 
-ENV PATH /app/node_modules/.bin:$PATH
+# stage 2
 
-# install and cache app dependencies
-COPY package.json /app/package.json
-RUN npm install
-RUN npm install -g @angular/cli
-
-# add app
-COPY . /app
-
-# start app
-CMD ng serve --host 0.0.0.0
+FROM nginx:alpine
+COPY --from=my-app-build /app/dist/angular-app /usr/share/nginx/html
+EXPOSE 80

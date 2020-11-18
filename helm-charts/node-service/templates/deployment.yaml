@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: node-service
-          image: sanzmiguel/node-service:0.1
+          image: sanzmiguel/node-service:0.2
           imagePullPolicy: IfNotPresent
           ports:
           - name: http

@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: angular-app
-          image: sanzmiguel/angular-app:0.1
+          image: sanzmiguel/angular-app:0.2
           imagePullPolicy: Always
           ports:
             - name: http
@@ -31,8 +31,8 @@ spec:
               protocol: TCP
           resources:
             limits:
-              cpu: 600m
-              memory: 800Mi
+              cpu: 150m
+              memory: 100Mi
             requests:
-              cpu: 300m
-              memory: 400Mi
+              cpu: 70m
+              memory: 40Mi
