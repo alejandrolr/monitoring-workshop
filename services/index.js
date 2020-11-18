@@ -1,10 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 
 const port = 3002;
 const app = express();
 
+app.use(cors());
+
 app.get('/timeout', (_, res) => {
-  console.log('Pasa');
   const timeout = Math.floor(Math.random() * 1000) + 1500; 
   setTimeout(() => {
     res.status(200).send({ timeout });

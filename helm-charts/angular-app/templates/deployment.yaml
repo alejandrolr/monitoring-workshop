@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: angular-app
-          image: sanzmiguel/angular-app:0.2
+          image: sanzmiguel/angular-app:0.4
           imagePullPolicy: Always
           ports:
             - name: http
