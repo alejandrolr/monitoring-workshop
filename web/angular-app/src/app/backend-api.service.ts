@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-const serviceUrl = 'http://node-service.default.svc.cluster.local:3002'
+const serviceUrl = 'http://node-service.default.svc:3002/timeout'
 
 @Injectable({
   providedIn: 'root'
