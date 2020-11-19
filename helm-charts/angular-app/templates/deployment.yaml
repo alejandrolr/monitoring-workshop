@@ -23,11 +23,11 @@ spec:
     spec:
       containers:
         - name: angular-app
-          image: sanzmiguel/angular-app:0.4
+          image: sanzmiguel/angular-app:1.0
           imagePullPolicy: Always
           ports:
             - name: http
-              containerPort: 4200
+              containerPort: 80
               protocol: TCP
           resources:
             limits:
