@@ -6,18 +6,18 @@ const app = express();
 
 app.use(cors());
 
-app.get('/timeout', (_, res) => {
+app.get('/api/timeout', (_, res) => {
   const timeout = Math.floor(Math.random() * 1000) + 1500; 
   setTimeout(() => {
     res.status(200).send({ timeout });
   }, timeout);
 });
 
-app.get('/error', (_, res) => {
+app.get('/api/error', (_, res) => {
   res.status(500).send({ error: 'Error in request' });
 });
 
-app.get('/date', (_, res) => {
+app.get('/api/date', (_, res) => {
   const date = new Date();
   res.status(200).send({ date });
 });
