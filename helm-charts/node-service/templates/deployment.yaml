@@ -18,10 +18,14 @@ spec:
     metadata:
       labels:
         app: node-service
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "3002"
+        prometheus.io.path: "/metrics"
     spec:
       containers:
         - name: node-service
-          image: sanzmiguel/node-service:1.0
+          image: sanzmiguel/node-service:1.2
           imagePullPolicy: IfNotPresent
           ports:
           - name: http
