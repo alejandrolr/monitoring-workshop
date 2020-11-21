@@ -7,10 +7,23 @@ const Registry = client.Registry;
 const register = new Registry();
 collectDefaultMetrics({ register });
 
-const counter = new client.Counter({
-  name: 'node_service_request_counter',
+const requestCounter = new client.Counter({
+  name: 'node_service_requests_counter',
   help: 'The total requests of the server',
   registers: [register]
+});
+
+const errorCounter = new client.Counter({
+  name: 'node_service_errors_counter',
+  help: 'The total errors of the server',
+  registers: [register]
+});
+
+const timeoutHistogram = new client.Histogram({
+  name: 'node_service_timeout_seconds',
+  help: 'The timeout histogram',
+  registers: [register],
+  buckets: [1.75, 2, 2.25]
 });
 
 const port = 3002;
@@ -19,20 +32,23 @@ const app = express();
 app.use(cors());
 
 app.get('/api/timeout', (_, res) => {
-  counter.inc(); 
+  requestCounter.inc();
   const timeout = Math.floor(Math.random() * 1000) + 1500; 
+  const end = timeoutHistogram.startTimer();
   setTimeout(() => {
+    end();
     res.status(200).send({ timeout });
   }, timeout);
 });
 
 app.get('/api/error', (_, res) => {
-  counter.inc(); 
+  requestCounter.inc();
+  errorCounter.inc();
   res.status(500).send({ error: 'Error in request' });
 });
 
 app.get('/api/date', (_, res) => {
-  counter.inc(); 
+  requestCounter.inc();
   const date = new Date();
   res.status(200).send({ date });
 });
