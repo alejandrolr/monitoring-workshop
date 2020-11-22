@@ -28,7 +28,7 @@ To delete all the stack use the following script:
 
 ## Accessing UI via web browser
 
-Once deployed stack, web interfaces can de exposed via [**port-forward**](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/). It consist of mapping the pod application port to a local port, to access the service via `localhost:port`. 
+Once deployed stack, web interfaces can be exposed via [**port-forward**](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) (mapping the pod application port to a local port), to access the service via `localhost:port`. 
 
 > Note: This is the easiest way to expose a service locally. Another options to expose services involve using ingresses, Nodeport/LoadBalancer services, etc. More information about accesing apps in a cluster [here](https://kubernetes.io/docs/tasks/access-application-cluster/).
 
