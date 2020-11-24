@@ -58,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1606256547205,
+  "iteration": 1606256547208,
   "links": [],
   "panels": [
     {
@@ -564,7 +564,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "kube_pod_container_status_restarts_total{namespace=\"default\"} - kube_pod_container_status_restarts_total{namespace=\"default\"} offset 15m",
+          "expr": "increase(kube_pod_container_status_restarts_total{namespace=\"default\"}[5m])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -661,5 +661,5 @@
   "timezone": "",
   "title": "Demo",
   "uid": "2px7lg0Gz",
-  "version": 15
+  "version": 16
 }
